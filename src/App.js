@@ -13,6 +13,9 @@ function App() {
           <Membre name="FOO" age="18" present="true"/>
           <Membre name="BAR" age="43"/>
           <Membre name="BAZ" age="60"/>
+          <Membre name="PropChildren">
+            Je suis un membre de la famille
+          </Membre>
           <img src={logo} className="App-logo" alt="logo" />
           <p>
             Edit <code>src/App.js</code> and save to reload.

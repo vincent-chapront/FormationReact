@@ -5,10 +5,11 @@ class Membre extends Component{
     //name = "Vincent";
 
     render() {
-        const {age,name, present:presentAlias}=this.props
+        const {age,name, present:presentAlias, children}=this.props
         return (
             <div>
                 <h1>Salut {name}, {age}, {presentAlias}</h1>
+                <h2>{children}</h2>
             </div>
         )
     }
