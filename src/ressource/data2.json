@@ -1,0 +1,5 @@
+{
+    "membre1": {"name":"David",   "age":21},
+    "membre2": {"name":"Edouard",     "age":42},
+    "membre3": {"name":"Fred", "age":63}
+}
