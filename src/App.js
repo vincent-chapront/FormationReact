@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import AppBis from './Components/AppBis';
 import Membre from './Components/Membre';
+import Button from './Components/Button';
 import { Fragment } from 'react';
 
 import famille from './ressource/data.json'
@@ -13,12 +14,12 @@ class App extends Component{
 
   HandleMembreIncrement=(m) =>{
     m.age++
-    this.setState(this.state)
+    this.setState(m)
   }
 
   HandleMembreDecrement=(m) =>{
     m.age--
-    this.setState(this.state)
+    this.setState(m)
   }
 
   render() {
@@ -29,14 +30,20 @@ class App extends Component{
           <header className="App-header">
             <AppBis />
             <Membre name={famille.membre1.name} age={famille.membre1.age}  />
-                <button onClick={()=>this.HandleMembreDecrement(famille.membre1)}>-</button>
-                <button onClick={()=>this.HandleMembreIncrement(famille.membre1)}>+</button>
+                <Button 
+                  jeunir={()=>this.HandleMembreDecrement(famille.membre1)}
+                  vieillir={()=>this.HandleMembreIncrement(famille.membre1)}
+                />
             <Membre name={famille.membre2.name} age={famille.membre2.age}  />
-                <button onClick={()=>this.HandleMembreDecrement(famille.membre2)}>-</button>
-                <button onClick={()=>this.HandleMembreIncrement(famille.membre2)}>+</button>
+                <Button 
+                  jeunir={()=>this.HandleMembreDecrement(famille.membre2)}
+                  vieillir={()=>this.HandleMembreIncrement(famille.membre2)}
+                />
             <Membre name={famille.membre3.name} age={famille.membre3.age}  />
-                <button onClick={()=>this.HandleMembreDecrement(famille.membre3)}>-</button>
-                <button onClick={()=>this.HandleMembreIncrement(famille.membre3)}>+</button>
+                <Button 
+                  jeunir={()=>this.HandleMembreDecrement(famille.membre3)}
+                  vieillir={()=>this.HandleMembreIncrement(famille.membre3)}
+                />
             <img src={logo} className="App-logo" alt="logo" />
             <p>
               Edit <code>src/App.js</code> and save to reload.
