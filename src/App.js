@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import AppBis from './Components/membre';
+import AppBis from './Components/AppBis';
+import Membre from './Components/Membre';
 import { Fragment } from 'react';
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <div className="App">
         <header className="App-header">
           <AppBis />
+          <Membre />
           <img src={logo} className="App-logo" alt="logo" />
           <p>
             Edit <code>src/App.js</code> and save to reload.
