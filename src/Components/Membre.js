@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 
 class Membre extends Component{
     // Declaring variable
-    name = "Vincent";
-  
+    //name = "Vincent";
+
     render() {
+        const name=this.props.name
         return (
             <div>
-                <h1>Salut {this.name}</h1>
+                <h1>Salut {name}</h1>
             </div>
         )
     }
