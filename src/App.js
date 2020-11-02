@@ -11,19 +11,13 @@ class App extends Component{
 
   state={famille}
 
-  HandleMembreIncrement=(i) =>{
-    const famille={...this.state.famille}
-    if(i===1) famille.membre1.age++
-    if(i===2) famille.membre2.age++
-    if(i===3) famille.membre3.age++
+  HandleMembreIncrement=(m) =>{
+    m.age++
     this.setState(this.state)
   }
 
-  HandleMembreDecrement=(i) =>{
-    const famille={...this.state.famille}
-    if(i===1) famille.membre1.age--
-    if(i===2) famille.membre2.age--
-    if(i===3) famille.membre3.age--
+  HandleMembreDecrement=(m) =>{
+    m.age--
     this.setState(this.state)
   }
 
@@ -35,14 +29,14 @@ class App extends Component{
           <header className="App-header">
             <AppBis />
             <Membre name={famille.membre1.name} age={famille.membre1.age}  />
-                <button onClick={()=>this.HandleMembreDecrement(1)}>-</button>
-                <button onClick={()=>this.HandleMembreIncrement(1)}>+</button>
+                <button onClick={()=>this.HandleMembreDecrement(famille.membre1)}>-</button>
+                <button onClick={()=>this.HandleMembreIncrement(famille.membre1)}>+</button>
             <Membre name={famille.membre2.name} age={famille.membre2.age}  />
-                <button onClick={()=>this.HandleMembreDecrement(2)}>-</button>
-                <button onClick={()=>this.HandleMembreIncrement(2)}>+</button>
+                <button onClick={()=>this.HandleMembreDecrement(famille.membre2)}>-</button>
+                <button onClick={()=>this.HandleMembreIncrement(famille.membre2)}>+</button>
             <Membre name={famille.membre3.name} age={famille.membre3.age}  />
-                <button onClick={()=>this.HandleMembreDecrement(3)}>-</button>
-                <button onClick={()=>this.HandleMembreIncrement(3)}>+</button>
+                <button onClick={()=>this.HandleMembreDecrement(famille.membre3)}>-</button>
+                <button onClick={()=>this.HandleMembreIncrement(famille.membre3)}>+</button>
             <img src={logo} className="App-logo" alt="logo" />
             <p>
               Edit <code>src/App.js</code> and save to reload.
