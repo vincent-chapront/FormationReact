@@ -46,19 +46,18 @@ class App extends Component{
 
   render() {
     const {famille,model }=this.state
-    const familleValues=Object.values(famille)
     const familleMembres=
-      familleValues.map((membre,index) =>
-      (
-        <MembreAction
-          key={index}
-          membre={membre}
-          handlerAge={this.HandleMembreIncrementAge}
-          handlerName={this.HandleChangeName}
-          incr={model.incr}
-        />
+      famille.map((membre,index) =>
+        (
+          <MembreAction
+            key={index}
+            membre={membre}
+            handlerAge={this.HandleMembreIncrementAge}
+            handlerName={this.HandleChangeName}
+            incr={model.incr}
+          />
+        )
       )
-    )
 
     const familleDisplay= 
         model.show
