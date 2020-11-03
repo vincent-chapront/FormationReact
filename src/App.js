@@ -42,7 +42,7 @@ class App extends Component{
 
   componentDidMount(){
     const ls=JSON.parse(localStorage.getItem('state'))
-    if(ls!=null && ls!=undefined)
+    if(ls!==null && ls!==undefined)
     {
       this.setState(ls)
     }
