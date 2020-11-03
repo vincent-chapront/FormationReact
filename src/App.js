@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import AppBis from './Components/AppBis';
-import Membre from './Components/Membre';
-import Button from './Components/Button';
+import MembreAction from './Components/MembreAction';
 import { Fragment } from 'react';
 
 import famille from './ressource/data.json'
@@ -20,16 +19,14 @@ class App extends Component{
   render() {
     const {famille }=this.state
     const familleValues=Object.values(famille)
+    
     const familleMembres=
-    familleValues.map((membre,index) =>
-        (
-          <Fragment key={index} >
-            <Membre name={membre.name} age={membre.age}/>
-            <Button vieillir={()=>this.HandleMembreIncrementAge(membre,-1)} text="-1"/>
-            <Button vieillir={()=>this.HandleMembreIncrementAge(membre,+1)} text="+1"/>
-          </Fragment>
-        )
+      familleValues.map((membre,index) =>
+      (
+        <MembreAction key={index} membre={membre} handler={this.HandleMembreIncrementAge}/>
       )
+    )
+
     return (
       <Fragment>
         <div className="App">
