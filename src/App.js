@@ -30,7 +30,7 @@ class App extends Component{
     const ls=JSON.parse(localStorage.getItem('state'))
     if(ls!=null && ls!=undefined)
     {
-      this.setState({famille:ls.famille,model:ls.model})
+      this.setState(ls)
     }
   }
 
@@ -75,7 +75,6 @@ class App extends Component{
             </a>
           </header>
         </div>
-        <AppBis />
       </Fragment>
     );
   }
