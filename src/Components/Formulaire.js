@@ -6,12 +6,16 @@ class Formulaire extends Component{
         const { name , value }= event.target
         this.setState({ [name]:value})
     }
+
+    submit=event=>{
+        event.preventDefault()
+        this.props.handleSubmit(this.state.name, this.state.age)
     }
 
     render() {
-        const {handleSubmit}=this.props
         return (
             <Fragment >
+                <form onSubmit={this.submit}>
                 <div className="container">
                     <div className="row">
                         <div className="col-sm-6">
@@ -25,10 +29,11 @@ class Formulaire extends Component{
                                 ></input>
                         </div>
                         <div className="col-sm-3">
-                            <button onClick={()=>handleSubmit(this.state.name, this.state.age)}>Save</button>
+                            <button type="submit">Save</button>
                         </div>
                     </div>
                 </div>
+                </form>
             </Fragment>
         )
     }
