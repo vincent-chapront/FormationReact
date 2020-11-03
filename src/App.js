@@ -16,6 +16,12 @@ class App extends Component{
     this.setState(membre)
   }
 
+  
+  HandleChangeName=event=>{
+    const fam={...this.state.famille}
+    fam.membre1.name=event.target.value
+    this.setState(fam)
+  }
   render() {
     const {famille }=this.state
     const familleValues=Object.values(famille)
@@ -23,7 +29,11 @@ class App extends Component{
     const familleMembres=
       familleValues.map((membre,index) =>
       (
-        <MembreAction key={index} membre={membre} handler={this.HandleMembreIncrementAge}/>
+        <MembreAction
+          key={index}
+          membre={membre}
+          handlerAge={this.HandleMembreIncrementAge}
+        />
       )
     )
 
@@ -32,6 +42,8 @@ class App extends Component{
         <div className="App">
           <header className="App-header">
             <AppBis />
+            <input type="text" onChange={this.HandleChangeName} value={this.state.famille.membre1.name}></input>
+
             {familleMembres}
             <img src={logo} className="App-logo" alt="logo" />
             <p>
