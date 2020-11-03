@@ -19,20 +19,23 @@ class App extends Component{
 
   render() {
     const {famille }=this.state
+    const familleValues=Object.values(famille)
+    const familleMembres=
+    familleValues.map((membre,index) =>
+        (
+          <Fragment key={index} >
+            <Membre name={membre.name} age={membre.age}/>
+            <Button vieillir={()=>this.HandleMembreIncrementAge(membre,-1)} text="-1"/>
+            <Button vieillir={()=>this.HandleMembreIncrementAge(membre,+1)} text="+1"/>
+          </Fragment>
+        )
+      )
     return (
       <Fragment>
         <div className="App">
           <header className="App-header">
             <AppBis />
-            <Membre name={famille.membre1.name} age={famille.membre1.age}  />
-                <Button vieillir={()=>this.HandleMembreIncrementAge(famille.membre1,-1)} text="-1"/>
-                <Button vieillir={()=>this.HandleMembreIncrementAge(famille.membre1,+1)} text="+1"/>
-            <Membre name={famille.membre2.name} age={famille.membre2.age}  />
-                <Button vieillir={()=>this.HandleMembreIncrementAge(famille.membre2,-2)} text="-2"/>
-                <Button vieillir={()=>this.HandleMembreIncrementAge(famille.membre2,+2)} text="+2"/>
-            <Membre name={famille.membre3.name} age={famille.membre3.age}  />
-                <Button vieillir={()=>this.HandleMembreIncrementAge(famille.membre3,-3)} text="-3"/>
-                <Button vieillir={()=>this.HandleMembreIncrementAge(famille.membre3,+3)} text="+3"/>
+            {familleMembres}
             <img src={logo} className="App-logo" alt="logo" />
             <p>
               Edit <code>src/App.js</code> and save to reload.
