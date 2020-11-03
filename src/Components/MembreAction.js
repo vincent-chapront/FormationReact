@@ -11,8 +11,10 @@ class MembreAction extends Component{
             <Fragment >
               <Membre name={membre.name} age={membre.age}/>
               <input type="text" onChange={event=>handlerName(membre,event.target.value)} value={membre.name}></input>
-              <Button vieillir={()=>handlerAge(membre,-incr)} text={"-"+incr}/>
-              <Button vieillir={()=>handlerAge(membre,+incr)} text={"+"+incr}/>
+              <p>              
+              <Button className="btn-danger" vieillir={()=>handlerAge(membre,-incr)} text={"-"+incr}/>
+              <Button className="btn-success" vieillir={()=>handlerAge(membre,+incr)} text={"+"+incr}/>
+              </p>
             </Fragment>
         )
     }

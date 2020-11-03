@@ -1,9 +1,9 @@
 import { Fragment } from "react"
 
-const Button=({vieillir, text})=>
+const Button=({vieillir, text, className})=>
     (
         <Fragment>
-            <button onClick={vieillir}>{text}</button>
+            <button className={"btn "+className+" my-2"} onClick={vieillir}>{text}</button>
         </Fragment>
     )
 
