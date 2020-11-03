@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import AppBis from './Components/AppBis';
+import Formulaire from './Components/Formulaire';
 import MembreAction from './Components/MembreAction';
 import { Fragment } from 'react';
 
@@ -30,6 +31,13 @@ class App extends Component{
     const model = this.state.model
     model.show=!model.show
     this.setState(model)
+  }
+
+  HandleSubmitMembre=(name, age)=>{    
+    const famille = this.state.famille
+    const newMembre={"name":name, "age":age}
+    famille.push(newMembre)
+    this.setState(famille)
   }
 
   componentDidMount(){
@@ -72,6 +80,8 @@ class App extends Component{
         <div className="App">
           <header className="App-header">
             <AppBis />
+
+            <Formulaire handleSubmit={this.HandleSubmitMembre}/>
 
             <button onClick={this.HandleDisplayText}>{model.show?"MASQUER":"AFFICHER"}</button>
                         
