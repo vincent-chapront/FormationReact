@@ -6,7 +6,7 @@ import MembreAction from './Components/MembreAction';
 import { Fragment } from 'react';
 
 import famille from './ressource/data.json'
-const model={"incr":1}
+const model={"incr":1, "show":false}
 class App extends Component{
 
   state={famille,model}
@@ -23,6 +23,12 @@ class App extends Component{
 
   HandleChangeIncrementer=(model, val)=>{
     model.incr=val
+    this.setState(model)
+  }
+
+  HandleDisplayText=()=>{
+    const model = this.state.model
+    model.show=!model.show
     this.setState(model)
   }
 
@@ -54,13 +60,24 @@ class App extends Component{
       )
     )
 
+    const familleDisplay= 
+        model.show
+        ? <Fragment>
+            <input type="number" value={model.incr} onChange={event=>this.HandleChangeIncrementer(model,event.target.value)}></input>
+            {familleMembres}
+          </Fragment>
+        : <Fragment/>
+
     return (
       <Fragment>
         <div className="App">
           <header className="App-header">
             <AppBis />
-            <input type="number" value={model.incr} onChange={event=>this.HandleChangeIncrementer(model,event.target.value)}></input>
-            {familleMembres}
+
+            <button onClick={this.HandleDisplayText}>{model.show?"MASQUER":"AFFICHER"}</button>
+                        
+            {familleDisplay}
+
             <img src={logo} className="App-logo" alt="logo" />
             <p>
               Edit <code>src/App.js</code> and save to reload.
