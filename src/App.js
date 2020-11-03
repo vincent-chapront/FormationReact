@@ -26,6 +26,18 @@ class App extends Component{
     this.setState(model)
   }
 
+  componentDidMount(){
+    const ls=JSON.parse(localStorage.getItem('state'))
+    if(ls!=null && ls!=undefined)
+    {
+      this.setState({famille:ls.famille,model:ls.model})
+    }
+  }
+
+  componentDidUpdate(){
+    localStorage.setItem('state', JSON.stringify(this.state))
+  }
+
   render() {
     const {famille,model }=this.state
     const familleValues=Object.values(famille)
