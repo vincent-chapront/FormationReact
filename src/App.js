@@ -12,14 +12,9 @@ class App extends Component{
 
   state={famille}
 
-  HandleMembreIncrement=(m) =>{
-    m.age++
-    this.setState(m)
-  }
-
-  HandleMembreDecrement=(m) =>{
-    m.age--
-    this.setState(m)
+  HandleMembreIncrementAge=(membre,increment) =>{
+    membre.age+=increment
+    this.setState(membre)
   }
 
   render() {
@@ -30,20 +25,14 @@ class App extends Component{
           <header className="App-header">
             <AppBis />
             <Membre name={famille.membre1.name} age={famille.membre1.age}  />
-                <Button 
-                  jeunir={()=>this.HandleMembreDecrement(famille.membre1)}
-                  vieillir={()=>this.HandleMembreIncrement(famille.membre1)}
-                />
+                <Button vieillir={()=>this.HandleMembreIncrementAge(famille.membre1,-1)} text="-1"/>
+                <Button vieillir={()=>this.HandleMembreIncrementAge(famille.membre1,+1)} text="+1"/>
             <Membre name={famille.membre2.name} age={famille.membre2.age}  />
-                <Button 
-                  jeunir={()=>this.HandleMembreDecrement(famille.membre2)}
-                  vieillir={()=>this.HandleMembreIncrement(famille.membre2)}
-                />
+                <Button vieillir={()=>this.HandleMembreIncrementAge(famille.membre2,-2)} text="-2"/>
+                <Button vieillir={()=>this.HandleMembreIncrementAge(famille.membre2,+2)} text="+2"/>
             <Membre name={famille.membre3.name} age={famille.membre3.age}  />
-                <Button 
-                  jeunir={()=>this.HandleMembreDecrement(famille.membre3)}
-                  vieillir={()=>this.HandleMembreIncrement(famille.membre3)}
-                />
+                <Button vieillir={()=>this.HandleMembreIncrementAge(famille.membre3,-3)} text="-3"/>
+                <Button vieillir={()=>this.HandleMembreIncrementAge(famille.membre3,+3)} text="+3"/>
             <img src={logo} className="App-logo" alt="logo" />
             <p>
               Edit <code>src/App.js</code> and save to reload.

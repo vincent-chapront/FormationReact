@@ -1,10 +1,9 @@
 import { Fragment } from "react"
 
-const Button=({jeunir, vieillir})=>
+const Button=({vieillir, text})=>
     (
         <Fragment>
-            <button onClick={jeunir}>-1</button>
-            <button onClick={vieillir}>+1</button>
+            <button onClick={vieillir}>{text}</button>
         </Fragment>
     )
 
