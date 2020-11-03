@@ -6,10 +6,10 @@ import MembreAction from './Components/MembreAction';
 import { Fragment } from 'react';
 
 import famille from './ressource/data.json'
-
+const model={"incr":1}
 class App extends Component{
 
-  state={famille}
+  state={famille,model}
 
   HandleMembreIncrementAge=(membre,increment) =>{
     membre.age+=increment
@@ -20,10 +20,15 @@ class App extends Component{
     membre.name=newName
     this.setState(membre)
   }
+
+  HandleChangeIncrementer=(model, val)=>{
+    model.incr=val
+    this.setState(model)
+  }
+
   render() {
-    const {famille }=this.state
+    const {famille,model }=this.state
     const familleValues=Object.values(famille)
-    
     const familleMembres=
       familleValues.map((membre,index) =>
       (
@@ -32,6 +37,7 @@ class App extends Component{
           membre={membre}
           handlerAge={this.HandleMembreIncrementAge}
           handlerName={this.HandleChangeName}
+          incr={model.incr}
         />
       )
     )
@@ -41,7 +47,7 @@ class App extends Component{
         <div className="App">
           <header className="App-header">
             <AppBis />
-
+            <input type="number" value={model.incr} onChange={event=>this.HandleChangeIncrementer(model,event.target.value)}></input>
             {familleMembres}
             <img src={logo} className="App-logo" alt="logo" />
             <p>
